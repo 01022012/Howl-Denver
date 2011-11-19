@@ -1,0 +1,5 @@
+	<span class="concert_date"><%= @concert.concert_date.strftime('%A, %B %d') %></span>
+	
+	<% #render the concert partial %>
+	<%= render :partial => @concert, :as => :c %>
+	

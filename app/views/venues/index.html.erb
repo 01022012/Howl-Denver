@@ -1,0 +1,16 @@
+<h1 class="page_title">Venues</h1>
+
+<% @venues.group_by{ |venue| venue.venue_type }.each do |venue_type, venues| %>
+	<span class="venue_type"><%= venue_type %></span>
+	
+	<% venues.each do |venue| %>
+		<div class="venue_stub">
+			<%= link_to venue.name, venue_path(venue.id), :class=>"attr_title" %>
+			<%= venue.address %>
+		</div>
+	<% end %>
+	
+<% end %>
+
+<br/>
+<%= link_to "New Venue", new_venue_path, :class => "red_button" %>

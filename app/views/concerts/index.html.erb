@@ -1,0 +1,10 @@
+<h1 class="page_title">Calendar</h1>
+<% @concerts.group_by{|concert| concert.concert_date.to_date}.each do|date, concert|%>
+	<% if date.day >= Date.today.day && date.month >= Date.today.month %>
+		<span class="concert_date"><%= date.strftime('%A, %B %d') %></span>
+	
+		<%= render :partial => 'concert_stub', :collection => concert, :as => :c  %>
+	<% end %>
+<% end %>
+	
+<%= link_to 'New Concert', new_concert_path, :class => 'red_button' %>

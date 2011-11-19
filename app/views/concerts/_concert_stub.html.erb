@@ -1,0 +1,30 @@
+<div class="concert_stub">
+	<a href="/concerts/<%= c.id %>" class="concert_link">
+				<div class="info_block">
+				<span class="attr_title">Lineup:</span>
+				<ul class="concert_lineup">
+					<% c.artists.each_with_index do |a, index |%>
+						<li>
+						<% i = index %>
+						<% while i >= 0 %>
+							<%= '--' %>
+							<% i = i - 1 %>
+						<% end %>
+						<%= a.name %>
+						</li>					
+					<%end%>
+				</ul>
+				</div>
+				
+				<div class="info_block">
+					<span class="attr_title">Show Info:</span>
+					<% if c.price != '' %>
+						<%= "$" + c.price + ". " %>
+					<% else %>
+						<%= "$FREE!!!" %>
+					<% end %>
+					<%= c.concert_date.strftime('%I:%M %p') +". "+ c.age %>
+				</div>
+	</a>
+</div>
+	

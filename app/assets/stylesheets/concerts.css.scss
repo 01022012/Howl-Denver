@@ -1,0 +1,68 @@
+// Place all the styles related to the Concerts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.concert_date{
+  background: #F04C43 ;
+  
+  color: #FFFFFF ;
+  font-family: 'Futura' ;
+  
+  display: block ;
+  max-width: 220px ;
+  padding: 5px 5px 5px 20px ;
+  
+  position: relative ;
+  left: -40px ;
+}
+
+.concert_stub{
+  margin: 20px 0px 20px 0px ;
+  overflow: hidden ;
+  clear: both ;
+}
+
+.concert_full{
+  margin: 20px 0px  0px 0px ;
+  overflow: hidden ;
+  clear: both ;
+}
+
+.concert_lineup{    
+  color: #4173C4 ;
+  list-style: none ;
+  padding: 0px ;
+  margin: 0px 0px 0px 0px ;
+  
+  overflow: hidden ;
+  float: left ;
+  clear: right ;
+}
+
+.edit_concert_lineup{    
+  color: #4173C4 ;
+  list-style: none ;
+  padding: 0px ;
+  margin: 10px 0px 0px 150px ;
+  
+  overflow: hidden ;
+  clear: left ;
+}
+
+.concert_lineup > li{
+  float:left ;
+  clear: left ;
+}
+
+.concert_link{
+  color: #000000 ;
+  width: 580px ;
+  display: block ;
+  text-decoration: none ;
+  overflow: hidden ;
+}
+
+.concert_link:hover{
+  background: #FAE8E3 ; 
+}
+

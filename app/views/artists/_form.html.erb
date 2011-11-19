@@ -1,0 +1,21 @@
+<%= form_for(@artist) do|f| %>
+
+	<div class="field">
+		<span class="attr_title"><%= f.label :name %></span>
+		<%= f.text_field :name %>
+	</div> 
+
+	<div class="field">
+		<span class="attr_title"><%= f.label :website %></span>
+		<%= f.text_field :website %>
+	</div>
+	
+	<div class="field">
+		<span class="attr_title"><%= f.label :biography %></span>
+		<%= f.text_area :bio %>
+	</div>
+	
+	<div class="actions">
+		<%= f.submit %>
+	</div>
+<% end %>

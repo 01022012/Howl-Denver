@@ -1,0 +1,28 @@
+// Place all the styles related to the Venues controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.venue_type{
+  background: #F04C43 ;
+  
+  text-align: center ;
+  color: #FFFFFF ;
+  font-family: 'Futura' ;
+  
+  display: block ;
+  width: 120px ;
+  padding: 5px ;
+  
+  position: relative ;
+  left: -40px ;
+}
+
+.venue_stub{
+  margin: 20px 0px 20px 0px ;
+}
+
+.venue_full{
+  margin: 20px 0px 20px 0px ;
+  overflow: hidden ;
+  clear: both ;
+}

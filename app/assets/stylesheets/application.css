@@ -1,0 +1,206 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require_tree . 
+*/
+
+body{
+	background: #51C1ED ; 
+	font-family: 'Baskerville' ; 
+	font-size: 16px ;
+}
+
+#header_image{
+	border: 0px;
+	margin: 0px 0px -5px 0px;
+	padding: 0px ;
+	border-width: 0px ;
+}
+
+#header{
+	padding: 0px 0px 0px 0px ;
+	margin: 0px 0px 0px 0px ;
+		border-width: 0px ;	
+
+}
+
+#container{
+	width: 640px ;
+	margin: 100px auto 100px auto ;
+}
+
+#navigation{
+	border-width: 0px ;	
+	background: #F04C43 ;
+	list-style: none ;
+	padding: 0px 0px 0px 0px ;
+	margin: 0px 0px 0px 0px ;
+	overflow: hidden ;
+}
+
+#navigation > li{
+	float: left ;
+}
+
+.navlink{
+	display: block ;
+	padding: 5px 20px 5px 20px ;
+	font-family: 'Futura' ;
+	color: #FFFFFF ;
+	text-decoration: none ;
+}
+
+.navlink:hover{
+	background: #E67670 ;
+}
+
+#content{
+	border-bottom-left-radius: 5px ;
+	border-bottom-right-radius: 5px ;
+	background: #FFFFFF ;
+	
+	padding: 10px 40px 40px 40px ;
+	overflow: hidden ;
+}
+
+.page_title{
+	margin-left: auto ;
+	margin-right: auto ;
+	
+	text-align: center ;
+	color: #F04C43 ;
+	font-family: 'Futura' ;
+}
+
+.red_button{
+	border-radius: 5px ;
+	text-decoration: none ;
+	text-align: center ;
+	
+	padding: 5px ;
+	margin: 10px 0px 10px 0px ;
+	min-width: 50px ;
+	
+	float: right ;
+	clear: right ;
+		
+	position: relative ;
+	background: #F04C43 ;
+	color: #FFFFFF ;
+	font-family: 'Futura' ;
+}
+
+.red_button:hover{
+	background: #E33B32 ;
+}
+
+.red_button:active{
+	background: #F04C43 ;
+}
+
+.actions input{
+	border-style: none ;
+	border-radius: 5px ;
+	text-decoration: none ;
+	text-align: center ;
+	
+	font-size: 14px ;
+	
+	padding: 5px ;
+	margin: 10px 0px 10px 0px ;
+	min-width: 50px ;
+	
+	float: right ;
+	clear: both ;
+		
+	position: relative ;
+	background: #F04C43 ;
+	color: #FFFFFF ;
+	font-family: 'Futura' ;
+}
+
+.actions input:hover{
+	background: #E33B32 ;
+}
+
+.actions input:active{
+	background: #F04C43 ;
+}
+
+button{
+	border-style: none ;
+	border-radius: 5px ;
+	text-decoration: none ;
+	text-align: center ;
+	
+	font-size: 14px ;
+	
+	padding: 5px ;
+	margin: 10px 0px 10px 0px ;
+	min-width: 50px ;
+		
+	position: relative ;
+	background: #F04C43 ;
+	color: #FFFFFF ;
+	font-family: 'Futura' ;
+}
+
+button:hover{
+	background: #E33B32 ;
+}
+
+button:active{
+	background: #F04C43 ;	
+}
+
+.info_block{
+   margin: 5px 0px 5px 0px ;
+   overflow: hidden ; 
+   float: left ; 
+   clear: both ;
+}
+
+.attr_title{
+	font-family: 'Futura' ;
+	color: #F04C43 ;
+	width: 150px ;
+	float: left ;
+	
+	clear: both ;
+}
+
+.red_link{
+	font-family: 'Futura' ;
+	color: #F04C43 ;
+}
+
+.field{
+	margin: 20px 0px 20px 0px ;
+	clear: both ;
+	overflow: hidden ;
+}
+
+
+.ui-autocomplete{
+	
+}
+
+.ui-menu{
+	max-width: 200px ;
+	border-style: solid ;
+	border-width: 1px ;
+	background: #FFFFFF ;
+	list-style: none ;
+	overflow: hidden ;
+	padding: 0px ;
+}
+
+.ui-menu-item{
+	padding: 5px ;
+	clear: left ;
+} 
+.ui-menu-item:hover{
+	background: #FAE8E3 ;
+}

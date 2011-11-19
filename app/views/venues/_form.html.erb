@@ -1,0 +1,44 @@
+<%= form_for(@venue) do |f| %>
+	<div class="field">
+		<span class="attr_title"><%= f.label :name %></span>
+		<%= f.text_field :name %>
+	</div>
+	
+	<div class="field">
+		<span class="attr_title"><%= f.label :address %></span>
+		<%= f.text_field :address %>
+	</div>
+
+	<div class="field">
+		<span class="attr_title"><%= f.label :venue_type %></span>
+		<%= f.select :venue_type, options_for_select([	['Warehouse','Warehouse'],
+														['Bar','Bar'],
+														['Venue','Venue'],
+														['Cafe','Cafe'],
+														['House','House'] ] ) %>
+	</div>
+
+	<div class="field">
+		<span class="attr_title"><%= f.label :phone %></span>
+		<%= f.text_field :phone %>
+	</div>
+
+	<div class="field">
+		<span class="attr_title"><%= f.label :email %></span>
+		<%= f.text_field :email %>
+	</div>
+
+	<div class="field">
+		<span class="attr_title"><%= f.label :website %></span>
+		<%= f.text_field :website %>
+	</div>
+
+	<div class="field">
+		<span class="attr_title"><%= f.label :description %></span>
+		<%= f.text_area :description %>
+	</div>
+
+	<div class="actions">
+		<%= f.submit %>
+	</div>	
+<% end %>

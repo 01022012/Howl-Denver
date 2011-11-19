@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ConcertCalendar</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js"></script>
+  
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div id="container">
+		<div id ="header">
+			<%= image_tag "header.jpg", :id => "header_image" %>
+			<ul id="navigation">
+				<li><%= link_to 'Calendar', concerts_path, :class => "navlink"%></li>
+				<li><%= link_to 'Artists', artists_path, :class => "navlink" %></li>
+				<li><%= link_to 'Venues', venues_path, :class => "navlink" %></li>
+			</ul>
+		</div>
+		<div id="content">
+			<%= yield %>
+		</div>
+	</div>
+</body>
+</html>
