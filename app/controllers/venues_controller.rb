@@ -1,6 +1,6 @@
 class VenuesController < ApplicationController
   def index
-    @venues = Venue.all
+    @venues = Venue.order(:venue_type)
   end
   
   def show
