@@ -1,6 +1,5 @@
 <h1 class="page_title">Calendar</h1>
 <div id="week_head">
-	<%# Use helpers for generating these links -%>
 	<%= link_to '>', concerts_path(:week => @week + 1, :year => @year), :class =>'nav_arrow_right'%>
 	<h2 id="week_headline"><%= Date.commercial( @year, @week, 1 ) %>-<%= Date.commercial( @year, @week, 7 ) %></h2>
 	<%= link_to '<', concerts_path(:week => @week - 1, :year => @year ), :class =>'nav_arrow_left'%>	
