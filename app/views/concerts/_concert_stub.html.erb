@@ -23,6 +23,9 @@
 					<% else %>
 						<%= "$FREE!!!" %>
 					<% end %>
+					<% if c.venue != nil %>
+						<span class="red_link">@<%= c.venue.name %></span>
+					<% end %>
 					<%= c.concert_date.strftime('%I:%M %p') +". "+ c.age %>
 				</div>
 	</a>

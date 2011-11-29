@@ -27,9 +27,12 @@
 					<% else %>
 						<%= "$FREE!!!" %>
 					<% end %>
+					<% if c.venue != nil %>
+						<span class="red_link">@<%= c.venue.name %></span>
+					<% end %>
 					<%= c.concert_date.strftime('%I:%M %p') +". "+ c.age %>
 				</div>
 		
 				<%= link_to "Edit", edit_concert_path(c), :class=>"red_button" %>
-</div>
+				<%= link_to 'Destroy', c, :confirm => 'Are you sure?', :method => :delete, :class=>"red_button" %></div>
 	

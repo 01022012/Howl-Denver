@@ -40,6 +40,12 @@ body{
 	overflow: hidden ;
 }
 
+.inline{
+	display: inline ;
+	float: none ; 
+	clear: none ;
+}
+
 #navigation > li{
 	float: left ;
 }
@@ -65,10 +71,9 @@ body{
 	overflow: hidden ;
 }
 
-.page_title{
+.page_title{ 
 	margin-left: auto ;
-	margin-right: auto ;
-	
+	margin-right: auto ;  
 	text-align: center ;
 	color: #F04C43 ;
 	font-family: 'Futura' ;
@@ -78,13 +83,13 @@ body{
 	border-radius: 5px ;
 	text-decoration: none ;
 	text-align: center ;
+	font-size: 14px ;
 	
 	padding: 5px ;
-	margin: 10px 0px 10px 0px ;
+	margin: 10px 5px 10px 5px ;
 	min-width: 50px ;
 	
 	float: right ;
-	clear: right ;
 		
 	position: relative ;
 	background: #F04C43 ;
@@ -109,11 +114,10 @@ body{
 	font-size: 14px ;
 	
 	padding: 5px ;
-	margin: 10px 0px 10px 0px ;
+	margin: 10px 5px 10px 5px ;
 	min-width: 50px ;
 	
 	float: right ;
-	clear: both ;
 		
 	position: relative ;
 	background: #F04C43 ;
@@ -203,4 +207,47 @@ button:active{
 } 
 .ui-menu-item:hover{
 	background: #FAE8E3 ;
+}
+
+.nav_arrow_left{
+	text-decoration: none ;
+	font-family: 'Futura' ;
+	color: #FFFFFF ;
+	background: #F04C43 ;
+	display: inline;
+	float: left ;
+	
+	padding: 5px 20px 5px 20px ;
+	position: relative ;
+	left: 0px ; 
+}
+
+.nav_arrow_right{
+	text-decoration: none ;
+	font-family: 'Futura' ;
+	color: #FFFFFF ;
+	background: #F04C43 ;
+	display: inline;
+	float: right ;
+	
+	padding: 5px 20px 5px 20px ;
+	position: relative ;
+	right: 0px ; 
+}
+
+#week_head{
+	margin: 0px auto 40px auto ;
+	clear: right ;
+	max-width: 400px;
+	overflow: hidden ;
+	text-align: center ;
+}
+
+#week_headline{
+	display: inline ;
+	color: #F04C43 ;
+	font-family: 'Futura' ;
+	
+	margin-left: auto ;
+	margin-right: auto ;
 }

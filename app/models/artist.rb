@@ -7,4 +7,12 @@ class Artist < ActiveRecord::Base
   def self.search term 
       where("name LIKE ?", "%" + term + "%") 
   end
+  
+  def self.add_new_artists_to_concert artist_names, c
+    artist_names.each do |a_name|
+      artist = self.create( :name => a_name )
+      c.artists << artist 
+      c
+    end
+  end
 end
