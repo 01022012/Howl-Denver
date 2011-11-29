@@ -21,17 +21,14 @@ class ConcertsController < ApplicationController
     @concerts = Concert.week @week, @year
   end
   
-  # Retrieves a single Concert and makes it available to the show.html.erb view.
   def show
     @concert = Concert.find(params[:id])
   end
   
-  # Creates a new instance of Concert and makes it available to the new.html.erb view.
   def new
     @concert = Concert.new
   end
   
-  # Creates a new show and redirects the user to concert page
   def create
     @concert = Concert.new(params[:concert])   
     
@@ -50,26 +47,23 @@ class ConcertsController < ApplicationController
     end
   end
   
-  # Retrieves a single Concert and makes it available to the edit view
   def edit 
     @concert = Concert.find(params[:id])
   end
   
-  # Updates the attributes of a Concert. If update fails, render the edit action.
   def update
     @concert = Concert.find(params[:id])
     
-    if params[:concert][:artist_ids].blank?
+    unless params[:concert][:artist_ids].present?
       params[:concert][:artist_ids] = []
     end
-    
-    #to delete
-    if @concert.update_attributes(params[:concert])
+     
+    if @concert.update_attributes params[:concert] 
       if params[:artist_names].present?
-        Artist.add_new_artists_to_concert params[:artist_names], @concert
+        Artist.add_new_artists_to_concert params[:artist_names], @concert 
       end
     
-      redirect_to(@concert)
+      redirect_to @concert 
     else
       render :action => 'edit'
     end

@@ -1,5 +1,5 @@
 
-	<%= form_for(@concert) do |f|%>
+	<%= form_for @concert do |f|%>
 
 		<div class="field"> 
 			<span class="attr_title"><%= f.label :description %></span>
@@ -36,10 +36,10 @@
 			<input id="temp_artist" type="hidden" name="tempartist" value=""></input>
 			
 			<ul class="edit_concert_lineup">
-				<% if @concert.artists != "" %>
+				<% if @concert.artists != '' && @concert.artists != nil %>
 					<% @concert.artists.each do |a|%>
 						<li><%= a.name %><input type="hidden" name="concert[artist_ids][]" value="<%= a.id %>"></input>
-<%= link_to 'Remove', '#', :class=>'remove_artist red_link' %></li>
+						<%= link_to 'Remove', '#', :class=>'remove_artist red_link' %></li>
 					<% end %>
 				<% end %>
 			</ul>
