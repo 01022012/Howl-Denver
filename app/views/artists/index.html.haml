@@ -1,0 +1,7 @@
+%h1.page_title Artists
+
+- @artists.each do |artist|
+	.artist_stub
+		= link_to artist.name, artist_path(artist.id), :class => 'red_link'
+		
+= link_to 'New Artist', new_artist_path, :class => 'red_button'

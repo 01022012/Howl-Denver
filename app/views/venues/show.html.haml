@@ -1,0 +1,18 @@
+.venue_full
+	%h1.page_title
+		= @venue.name
+	.info_block
+		%span.attr_title Address:
+		= @venue.address
+	.info_block
+		%span.attr_title Description:
+		= @venue.description
+	.info_block
+		%span.attr_title Websites:
+		-if @venue.website1.present?
+			%a{ :href=> @venue.website1 } web
+		- if @venue.website2.present?
+			%a{ :href=> @venue.website2 } web
+		- if @venue.website3.present?
+			%a{ :href=> @venue.website3 } web
+	= link_to 'Edit', edit_venue_path(@venue.id), :class=>'red_button'

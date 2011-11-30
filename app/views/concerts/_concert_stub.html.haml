@@ -1,33 +1,24 @@
-<div class="concert_stub">
-	<a href="/concerts/<%= c.id %>" class="concert_link">
-				<div class="info_block">
-				<span class="attr_title">Lineup:</span>
-				<ul class="concert_lineup">
-					<% c.artists.each_with_index do |a, index |%>
-						<li>
-						<% i = index %>
-						<% while i >= 0 %>
-							<%= '--' %>
-							<% i = i - 1 %>
-						<% end %>
-						<%= a.name %>
-						</li>					
-					<%end%>
-				</ul>
-				</div>
-				
-				<div class="info_block">
-					<span class="attr_title">Show Info:</span>
-					<% if c.price != '' %>
-						<%= "$" + c.price + ". " %>
-					<% else %>
-						<%= "$FREE!!!" %>
-					<% end %>
-					<% if c.venue != nil %>
-						<span class="red_link">@<%= c.venue.name %></span>
-					<% end %>
-					<%= c.concert_date.strftime('%I:%M %p') +". "+ c.age %>
-				</div>
-	</a>
-</div>
+.concert_stub
+  %a{ :href => '/concerts/' + c.id.to_s, :class=>'concert_link' }
+    .info_block
+      %span.attr_title Lineup:
+      %ul.concert_lineup
+        - c.artists.each_with_index do |a, index|
+          %li
+            - i = index
+            - while i >= 0 
+              &='--'
+              - i = i - 1
+            = a.name
+    .info_block
+      %span.attr_title Show Info:
+      - if c.price.present?
+        $ #{c.price} .
+      - else 
+        FREE!!!
+      - if c.venue.present?
+        %span.red_link
+          = '@' + c.venue.name
+      #{c.concert_date.strftime('%I:%M %p')} . #{c.age}
+	
 	

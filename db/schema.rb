@@ -10,14 +10,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111119001855) do
+ActiveRecord::Schema.define(:version => 20111130212828) do
 
   create_table "artists", :force => true do |t|
     t.string   "name"
     t.text     "bio"
-    t.string   "website"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "website1"
+    t.string   "website2"
+    t.string   "website3"
   end
 
   create_table "artists_concerts", :id => false, :force => true do |t|
@@ -36,13 +38,13 @@ ActiveRecord::Schema.define(:version => 20111119001855) do
   create_table "venues", :force => true do |t|
     t.string   "name"
     t.string   "address"
-    t.string   "phone"
-    t.string   "email"
-    t.string   "website"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "venue_type"
+    t.string   "website1"
+    t.string   "website2"
+    t.string   "website3"
   end
 
 end

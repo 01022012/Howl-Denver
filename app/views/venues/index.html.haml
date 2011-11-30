@@ -1,16 +1,12 @@
-<h1 class="page_title">Venues</h1>
+%h1.page_title Venues
 
-<% @venues.group_by{ |venue| venue.venue_type }.each do |venue_type, venues| %>
-	<span class="venue_type"><%= venue_type %></span>
+- @venues.group_by{ |venue| venue.venue_type }.each do |venue_type, venues| 
+	%span.venue_type 
+		= venue_type
 	
-	<% venues.each do |venue| %>
-		<div class="venue_stub">
-			<%= link_to venue.name, venue_path(venue.id), :class=>"attr_title" %>
-			<%= venue.address %>
-		</div>
-	<% end %>
-	
-<% end %>
+	- venues.each do |venue|
+		.venue_stub
+			= link_to venue.name, venue_path( venue.id ), :class=>"attr_title"
+			= venue.address
 
-<br/>
-<%= link_to "New Venue", new_venue_path, :class => "red_button" %>
+= link_to 'New Venue', new_venue_path, :class => "red_button"

@@ -1,6 +1,6 @@
 class Artist < ActiveRecord::Base
   validates :name, :presence => true 
-  validates_format_of :website, :with => URI::regexp(%w(http https)), :allow_blank => true
+  validates_format_of :website1, :website2, :website3, :with => URI::regexp(%w(http https)), :allow_blank => true
   
   has_and_belongs_to_many :concerts 
   

@@ -1,21 +1,18 @@
-<%= form_for(@artist) do|f| %>
-
-	<div class="field">
-		<span class="attr_title"><%= f.label :name %></span>
-		<%= f.text_field :name %>
-	</div> 
-
-	<div class="field">
-		<span class="attr_title"><%= f.label :website %></span>
-		<%= f.text_field :website %>
-	</div>
-	
-	<div class="field">
-		<span class="attr_title"><%= f.label :biography %></span>
-		<%= f.text_area :bio %>
-	</div>
-	
-	<div class="actions">
-		<%= f.submit %>
-	</div>
-<% end %>
+= form_for(@artist) do |f|
+	.field
+		%span.attr_title
+			= :name
+		= f.text_field :name
+	.field
+		%span.attr_title
+			= :websites
+		= f.text_field :website1
+		= f.text_field :website2
+		= f.text_field :website3
+	.field
+		%span.attr_title
+			= :bio
+		= f.text_area :bio 
+	.actions
+		= f.submit
+ 

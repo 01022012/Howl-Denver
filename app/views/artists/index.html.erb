@@ -1,9 +1,0 @@
-<h1 class="page_title">Artists</h1>
-
-<% @artists.each do|artist|%>
-	<div class="artist_stub">
-		<%= link_to artist.name, artist_path(artist.id), :class => "red_link" %>
-	</div>
-<% end %>
-
-<%= link_to 'New Artist', new_artist_path, :class => 'red_button' %>
