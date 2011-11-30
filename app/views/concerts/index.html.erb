@@ -1,14 +1,19 @@
-<h1 class="page_title">Calendar</h1>
+<h1 class="page_title">The Freakin' Week</h1>
 <div id="week_head">
 	<%= link_to '>', concerts_path(:week => @week + 1, :year => @year), :class =>'nav_arrow_right'%>
-	<h2 id="week_headline"><%= Date.commercial( @year, @week, 1 ) %>-<%= Date.commercial( @year, @week, 7 ) %></h2>
+	<h2 id="week_headline"><%= Date.commercial( @year, @week, 1 ) %> - <%= Date.commercial( @year, @week, 7 ) %></h2>
 	<%= link_to '<', concerts_path(:week => @week - 1, :year => @year ), :class =>'nav_arrow_left'%>	
 </div>
 
-<% @concerts.group_by{|concert| concert.concert_date.to_date}.each do|date, concert|%>
+<% if @concerts.present? %>
+	<% @concerts.group_by{|concert| concert.concert_date.to_date}.each do|date, concert|%>
 		<span class="concert_date"><%= date.strftime('%A, %B %d') %></span>
-	
-		<%= render :partial => 'concert_stub', :collection => concert, :as => :c  %>
+		
+			<%= render :partial => 'concert_stub', :collection => concert, :as => :c  %>
+		
+	<% end %>
+<% else %>
+	<span class="big_text center">There are no shows logged for this week</span>
 <% end %>
 
 <%= link_to 'New Concert', new_concert_path, :class => 'red_button' %>
