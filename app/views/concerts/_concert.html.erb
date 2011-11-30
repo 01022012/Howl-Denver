@@ -28,7 +28,7 @@
 						<%= "$FREE!!!" %>
 					<% end %>
 					<% if c.venue != nil %>
-						<span class="red_link">@<%= c.venue.name %></span>
+						<span class="red_link">@<%= link_to c.venue.name, venue_path(c.venue.id), :class => 'red_link'%></span>
 					<% end %>
 					<%= c.concert_date.strftime('%I:%M %p') +". "+ c.age %>
 				</div>
