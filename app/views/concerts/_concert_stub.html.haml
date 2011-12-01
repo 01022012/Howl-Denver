@@ -16,9 +16,8 @@
         $ #{c.price} .
       - else 
         FREE!!!
-      - if c.venue.present?
-        %span.red_link
-          = '@' + c.venue.name
+      %span.red_link
+        = '@' + c.venue.name
       #{c.concert_date.strftime('%I:%M %p')} . #{c.age}
 	
 	

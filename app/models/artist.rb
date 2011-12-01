@@ -8,11 +8,12 @@ class Artist < ActiveRecord::Base
       where("name LIKE ?", "%" + term + "%") 
   end
   
-  def self.add_new_artists_to_concert artist_names, c
+  def self.create_many_artists artist_names
+    new_artist_ids = []
     artist_names.each do |a_name|
       artist = self.create( :name => a_name )
-      c.artists << artist 
-      c
+      new_artist_ids << artist.id 
     end
+    new_artist_ids
   end
 end

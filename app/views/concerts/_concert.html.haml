@@ -19,8 +19,7 @@
 			$ #{c.price} .
 		- else 
 			FREE!!!
-		- if c.venue.present?
-			= link_to '@' + c.venue.name, venue_path(c.venue.id), :class => 'red_link'
+		= link_to '@' + c.venue.name, venue_path(c.venue.id), :class => 'red_link'
 		#{c.concert_date.strftime('%I:%M %p')} . #{c.age}
 		
 	= link_to "Edit", edit_concert_path(c), :class=>"red_button"

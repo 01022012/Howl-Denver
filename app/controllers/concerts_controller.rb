@@ -57,12 +57,12 @@ class ConcertsController < ApplicationController
     unless params[:concert][:artist_ids].present?
       params[:concert][:artist_ids] = []
     end
+    
+    if params[:artist_names].present?        
+        params[:concert][:artist_ids] += Artist.create_many_artists( params[:artist_names] )
+    end
      
     if @concert.update_attributes params[:concert] 
-      if params[:artist_names].present?
-        Artist.add_new_artists_to_concert params[:artist_names], @concert 
-      end
-    
       redirect_to @concert 
     else
       render :action => 'edit'

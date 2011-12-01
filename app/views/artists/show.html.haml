@@ -1,21 +1,21 @@
 .artist_full
-	%h1.page_title 
-		= @artist.name
+  %h1.page_title 
+    = @artist.name
 	
-	.info_block
-		%span.attr_title Bio:
-		- if @artist.present? 
-			= @artist.bio
-		- else 
-			This artist does not have a bio.
-	.info_block
-		%span.attr_title Websites:
-		-if @artist.website1.present?
-			%a{ :href=> @artist.website1 } web
-		- if @artist.website2.present?
-			%a{ :href=> @artist.website2 } web
-		- if @artist.website3.present?
-			%a{ :href=> @artist.website3 } web
+  .info_block
+    %span.attr_title Bio:
+    - if @artist.present? 
+      = @artist.bio
+    - else 
+      This artist does not have a bio.
+  .info_block
+    %span.attr_title Websites:
+    -if @artist.website1.present?
+      %a{ :href=> @artist.website1 } web
+    - if @artist.website2.present?
+      %a{ :href=> @artist.website2 } web
+    - if @artist.website3.present?
+      %a{ :href=> @artist.website3 } web
 
 = link_to 'Edit', edit_artist_path(@artist.id), :class=>'red_button'
 
