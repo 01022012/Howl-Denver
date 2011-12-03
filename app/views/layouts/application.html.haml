@@ -1,28 +1,29 @@
 !!! 5
 
+
 %html
-	%head
-		%title Howl Denver
-		= stylesheet_link_tag "application"
-		= javascript_include_tag "application"
-		= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.js" 
-		= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js"
+  %head
+    %title Howl Denver
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "application"
+    = javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.js" 
+    = javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js"
 		
-		= csrf_meta_tags
-	%body
-		#container
-			#header
-				= image_tag "header.jpg", :id => "header_image"
-				%ul#navigation
-					%li 
-						= link_to 'Calendar', concerts_path, :class => 'navlink'
-					%li 
-						= link_to 'Artists', artists_path, :class => 'navlink'
-					%li 
-						= link_to 'Venues', venues_path, :class => 'navlink'
-			#content
-				= yield
-			#footer
+    = csrf_meta_tags  
+    %body
+    #container
+      #header
+        = image_tag "header.jpg", :id => "header_image"
+        %ul#navigation
+          %li 
+            = link_to 'Calendar', concerts_path, :class => 'navlink'
+          %li 
+            = link_to 'Artists', artists_path, :class => 'navlink'
+          %li 
+            = link_to 'Venues', venues_path, :class => 'navlink'
+      #content
+        = yield
+      #footer
 
 
 
