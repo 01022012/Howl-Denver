@@ -1,6 +1,4 @@
 !!! 5
-
-
 %html
   %head
     %title Howl Denver
@@ -34,28 +32,3 @@
             = link_to 'Artists', artists_path
           %li 
             = link_to 'Venues', venues_path
-  
-  
-  
-  
-  
-/
-  %head
-    %title Howl Denver 
-    %body
-    #container
-      #header
-        = image_tag "header.jpg", :id => "header_image"
-        %ul#navigation
-          %li 
-            = link_to 'Calendar', concerts_path, :class => 'navlink'
-          %li 
-            = link_to 'Artists', artists_path, :class => 'navlink'
-          %li 
-            = link_to 'Venues', venues_path, :class => 'navlink'
-      #content
-        = yield
-      #footer
-
-
-
