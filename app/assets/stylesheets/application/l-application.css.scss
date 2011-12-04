@@ -1,0 +1,54 @@
+.container{
+  width: 940px ;
+  margin: 0px auto ;
+  
+  background-image: url('backgrounds/container.png');
+  background-repeat: repeat-y ;
+  
+  position: relative ;
+  overflow: hidden ;
+  
+}
+
+#header, #footer{
+  height: 190px ;
+  
+  background: #cd5353 ;
+  background-image: url('backgrounds/light-headfoot.png');
+  background-repeat: repeat-y ;
+}
+
+
+#header .container{
+  height: inherit ;
+  
+  background-image: url('backgrounds/container-headfoot.png');
+  background-repeat: repeat-y ;
+}
+
+#footer .container{
+  height: inherit ;
+  
+  background-image: url('backgrounds/container-headfoot.png');
+  background-repeat: repeat-y ; 
+}
+
+#content{
+  width: 500px ;
+  padding: 20px ;
+  
+  float: left ;
+}
+
+#sidebar{
+  width: 360px ;
+  padding: 20px ;
+  
+  float: right ;
+}
+
+#content h1{ color: #e17979 ; }
+
+#sidebar h1{ color: #FFFFFF ; }
+
+

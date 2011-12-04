@@ -1,0 +1,54 @@
+/* 
+ * Navigation Styles 
+ */
+
+.navigation{
+  margin: 0px ;
+  padding: 16px 0px ;
+  
+  list-style: none ;
+}
+
+.navigation li {
+  display: inline ;
+}
+
+.navigation li a {
+  width: auto ;
+  padding: 0px 20px ;
+  
+  text-align: center ;
+  font-size: 1.3em ;
+  text-decoration: none ;
+  color: #cd5353 ;
+  
+  display: inline-block ;
+}
+
+.navigation li a:hover{
+  background: #cd5353 ;
+  
+  color: #FFFFFF ;
+}
+
+#header .navigation{
+  bottom: 0px ;
+  
+  position: absolute ;
+}
+
+/*
+ * Logo
+ */
+
+#logo{
+  width: 384px ; 
+  height: 161px ;
+  margin: 10px ;
+  
+  background-image: url('logo.png') ;
+  background-repeat: no-repeat ;
+  
+  position: absolute ;
+  left: 370px ;
+}

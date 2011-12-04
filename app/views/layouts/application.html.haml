@@ -8,8 +8,38 @@
     = javascript_include_tag "application"
     = javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.js" 
     = javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js"
-		
-    = csrf_meta_tags  
+    
+    = csrf_meta_tags 
+  %body
+    #header
+      .container  
+        = link_to '', root_path, :id =>'logo'
+        %ul.navigation
+          %li 
+            = link_to 'Calendar', concerts_path
+          %li 
+            = link_to 'Artists', artists_path
+          %li 
+            = link_to 'Venues', venues_path
+    .container
+      = yield
+    #footer
+      .container
+        %ul.navigation
+          %li 
+            = link_to 'Calendar', concerts_path
+          %li 
+            = link_to 'Artists', artists_path
+          %li 
+            = link_to 'Venues', venues_path
+  
+  
+  
+  
+  
+/
+  %head
+    %title Howl Denver 
     %body
     #container
       #header
