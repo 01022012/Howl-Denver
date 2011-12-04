@@ -11,20 +11,23 @@
     
     = csrf_meta_tags 
   %body
-    #header
-      .container  
-        = link_to '', root_path, :id =>'logo'
-        %ul.navigation
-          %li 
-            = link_to 'Calendar', concerts_path
-          %li 
-            = link_to 'Artists', artists_path
-          %li 
-            = link_to 'Venues', venues_path
-    .container
-      = yield
-    #footer
+    
+    #wrapper
+      #header
+        .fh-container  
+          = link_to '', root_path, :id =>'logo'
+          %ul.navigation
+            %li 
+              = link_to 'Calendar', concerts_path
+            %li 
+              = link_to 'Artists', artists_path
+            %li 
+              = link_to 'Venues', venues_path
       .container
+        = yield
+      .push
+    #footer
+      .fh-container
         %ul.navigation
           %li 
             = link_to 'Calendar', concerts_path
