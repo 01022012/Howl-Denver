@@ -5,7 +5,7 @@
   height: 100% ;
   height: auto !important;  
   
-  background-image: url('backgrounds/container.png');
+  background-image: image_url('backgrounds/container.png') ;
   background-repeat: repeat-y ;
   background-position: center ;
 }
@@ -26,7 +26,7 @@
   height: 190px ;
   
   background: #cd5353 ;
-  background-image: url('backgrounds/light-headfoot.png');
+  background-image: image_url('backgrounds/light-headfoot.png');
   background-repeat: repeat-y ;
 }
 
@@ -35,7 +35,7 @@
   width: 940px ;
   margin: 0px auto ;
     
-  background-image: url('backgrounds/container-headfoot.png');
+  background-image: image_url('backgrounds/container-headfoot.png');
   background-repeat: repeat-y ;
   
   position: relative ;
