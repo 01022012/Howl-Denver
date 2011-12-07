@@ -5,7 +5,7 @@ class VenuesController < ApplicationController
   
   def show
     @venue = Venue.find(params[:id])
-    @upcoming_concerts = @venue.concerts.where( 'concert_date >= ?', Date.today ).order(:concert_date)
+    @upcoming_concerts = @venue.concerts.where( 'concert_date >= ?', Date.today ).order('concert_date')
   end
   
   def new

@@ -5,7 +5,7 @@ class ArtistsController < ApplicationController
   
   def show
     @artist = Artist.find(params[:id])
-    @upcoming_concerts = @artist.concerts.where( 'concert_date >= ?', Date.today ).order(:concert_date)
+    @upcoming_concerts = @artist.concerts.where( 'concert_date >= ?', Date.today ).order('concert_date')
   end
   
   def new
