@@ -1,6 +1,6 @@
 .content
   %h2.red Upcoming Shows
-  -if @upcoming_concerts != nil && @upcoming_concerts != ''
+  -if @upcoming_concerts.present?
     Shows!!!
     = render :partial => 'concerts/clist', :locals => { :concerts => @upcoming_concerts } 
   -else
