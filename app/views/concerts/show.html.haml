@@ -42,3 +42,5 @@
         $ #{@concert.price}
       - else 
         Free
+        
+  = link_to 'Edit', edit_concert_path( @concert.id ), :class => 'red-button'
