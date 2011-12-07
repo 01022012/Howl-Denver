@@ -1,10 +1,21 @@
 
-#content
-  %h1 Heading 1
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis tellus quis metus accumsan eleifend. Sed mollis elit non metus mattis bibendum
+.content
+  %h2.red The Freakin' Week: #{Date.commercial( @year, @week, 1 ).strftime('%m.%d.%y')} - #{Date.commercial( @year, @week, 7 ).strftime('%m.%d.%y')}
 
-  end
-#sidebar
-  %h1 Heading 2
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis tellus quis metus accumsan eleifend. Sed mollis elit non metus mattis bibendum
-			
+  .pod.no-pad
+    = link_to 'Previous', concerts_path(:week => @week - 1, :year => @year ), :class => 'left red-button'
+    = link_to 'Next', concerts_path(:week => @week + 1, :year => @year), :class => 'right red-button'
+
+  - if @concerts.present?
+    = render :partial => 'clist', :locals => { :concerts => @concerts }
+  - else 
+    There are now shows logged for this week
+  
+.sidebar
+  %h1.white Show Calendar
+  .divider
+  .pod.white.left
+    Welcome to the Howl Denver calendar! This lists local shows happening all over Denver. Know of a show but don't see it on the calendar?
+  .pod
+    = link_to 'New Concert', new_concert_path, :class => 'red-button' 
+

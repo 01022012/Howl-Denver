@@ -1,7 +1,9 @@
-%h1.page_title 
-  Edit
-  = @artist.name
+.content
+  %h1.red
+    Edit
+    = @artist.name
  
-= render 'form'
+  = render 'form'
 
-= link_to 'Back', artists_path, :class => 'red_button'
+  = link_to 'Back', artists_path, :class => 'red-button'
+.sidebar

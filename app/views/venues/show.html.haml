@@ -1,18 +1,23 @@
-.venue_full
-	%h1.page_title
-		= @venue.name
-	.info_block
-		%span.attr_title Address:
-		= @venue.address
-	.info_block
-		%span.attr_title Description:
-		= @venue.description
-	.info_block
-		%span.attr_title Websites:
-		-if @venue.website1.present?
-			%a{ :href=> @venue.website1 } web
-		- if @venue.website2.present?
-			%a{ :href=> @venue.website2 } web
-		- if @venue.website3.present?
-			%a{ :href=> @venue.website3 } web
-	= link_to 'Edit', edit_venue_path(@venue.id), :class=>'red_button'
+.content
+  %h2.red Upcoming Shows
+  -if @upcoming_concerts.present?
+    = render :partial => 'concerts/clist', :locals => { :concerts => @upcoming_concerts } 
+  -else
+    This venue does not have any upcoming shows.
+.sidebar
+  %h1.white
+    = @venue.name
+  .divider
+  %h2.white Description:
+  .pod.white
+    -if @venue.description.present?
+      = @venue.description
+    -else 
+      This venue does not have a description filled out.
+  %h2.white Address:
+  .pod.white
+    = @venue.address
+  %h2.white Websites:
+  .pod.white
+    websites!
+  = link_to 'Edit', edit_venue_path(@venue.id), :class=>'red-button'

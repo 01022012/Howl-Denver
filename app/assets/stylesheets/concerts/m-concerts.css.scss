@@ -1,0 +1,32 @@
+.concert_date{
+  height: 40px ;
+  width: 40px ;
+  padding: 10px ;
+  margin-left: -20px ;
+  
+  background: #cd5353 ;
+  
+  font-family:'Futura' ;
+  color: #FFFFFF ;
+  text-align: center ;
+  
+  display: block ;
+  position: absolute ;
+}
+
+.sidebar .concert_date{
+  margin: 0px ;
+  background: #FFFFFF ;
+  color: #cd5353 ;
+}
+
+.lineup{
+  margin: 0px ;
+  padding: 0px 17px ;
+  
+  border-left-style: solid ;
+  border-left-width: 3px ;
+  
+  list-style-image: image_url('lineup_marker.png') ;
+}
+

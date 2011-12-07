@@ -1,7 +1,16 @@
-%h1.page_title Artists
+.content
+  - @artists.each do |artist|
+    .pod
+      %a.block-link{:href=> '/artists/' + artist.id.to_s }
+        %span.red
+          = artist.name
+        %br
+        = artist.bio
 
-- @artists.each do |artist|
-	.artist_stub
-		= link_to artist.name, artist_path(artist.id), :class => 'red_link'
-		
-= link_to 'New Artist', new_artist_path, :class => 'red_button'
+.sidebar
+  %h1.white Artists
+  .divider
+  .pod.white
+    This is a directory of all artists that pass through Denver. Did you just start a band or discover one?
+  .pod
+    = link_to 'New Artist', new_artist_path, :class => 'red-button'

@@ -82,7 +82,6 @@ body {
 * Addresses font-family inconsistency between 'textarea' and other form elements.
 */
 
-body,
 button,
 input,
 select,
@@ -117,14 +116,6 @@ a:active {
 /* =============================================================================
 Typography
 ========================================================================== */
-
-/*
-* Neutralise smaller font-size in 'section' and 'article' in FF4+, Chrome, S5
-*/
-
-h1 {
-    font-size: 2em;
-}
 
 /*
 * Addresses styling not present in IE7/8/9, S5, Chrome

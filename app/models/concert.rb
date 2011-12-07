@@ -8,7 +8,9 @@ class Concert < ActiveRecord::Base
 
   def self.week wnum, ynum
     wstart = Date.commercial( ynum.to_i, wnum.to_i, 1 )
-    wend = Date.commercial( ynum.to_i, wnum.to_i, 7 )
-    self.where('concert_date >= ? AND concert_date <= ?' , wstart, wend ).order('concert_date')
+    
+    wnum = 0 unless wnum < 52
+    wend = Date.commercial( ynum.to_i, wnum.to_i + 1 , 1)
+    self.where('concert_date >= ? AND concert_date < ?' , wstart, wend ).order('concert_date')
   end
 end

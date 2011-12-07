@@ -1,0 +1,7 @@
+- concerts.group_by{|concert| concert.concert_date.to_date}.each do|date, concert|
+  .concert-day
+    %span.concert_date
+      = date.strftime('%b') 
+      %br
+      = date.strftime('%d')
+    = render :partial =>'concerts/concert_stub', :collection => concert, :as => :c

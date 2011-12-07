@@ -1,12 +1,18 @@
-%h1.page_title Venues
-
-- @venues.group_by{ |venue| venue.venue_type }.each do |venue_type, venues| 
-	%span.venue_type 
-		= venue_type
-	
-	- venues.each do |venue|
-		.venue_stub
-			= link_to venue.name, venue_path( venue.id ), :class=>"attr_title"
-			= venue.address
-
-= link_to 'New Venue', new_venue_path, :class => "red_button"
+.content
+  - @venues.group_by{ |venue| venue.venue_type }.each do |venue_type, venues| 
+    %span.venue-type
+      = venue_type + 's'
+    - venues.each do |venue|
+      .pod
+        %a.block-link{ :href => '/venues/' + venue.id.to_s }
+          %span.red
+            = venue.name
+          %br
+          = venue.address
+.sidebar
+  %h1.white Venues
+  .divider
+  .pod.white
+    This is a list of venues in the Denver area. Did you find a new spot no one else knows about?
+  .pod
+    = link_to 'New Venue', new_venue_path, :class => "red-button"

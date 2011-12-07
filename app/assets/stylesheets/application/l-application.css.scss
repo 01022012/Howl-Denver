@@ -9,8 +9,10 @@
   background-repeat: repeat-y ;
   background-position: center ;
 }
+
 .container{  
   width: 940px ;
+  min-height: 100px ;
   margin: 0px auto 0px ;
   
   position: relative ;
@@ -42,24 +44,32 @@
   overflow: hidden ;
 }
 
-#content{
+.content{
   width: 500px ;
   padding: 20px ;
   
   float: left ;
 }
 
-#sidebar{
+.sidebar{
   width: 360px ;
   padding: 20px ;
-  
-  color: #FFFFFF ;
-  
+    
   float: right ;
 }
 
-#content h1{ color: #e17979 ; }
+.divider{
+  height: 2px ;
+  background: #FFFFFF ;
+  
+  margin-bottom: 20px ;
+}
 
-#sidebar h1{ color: #FFFFFF ; }
+.left{ float: left ; }
+.right{ float: right ;}
+
+.no-pad{
+  padding: 0px 0px 20px 0px !important ;
+}
 
 

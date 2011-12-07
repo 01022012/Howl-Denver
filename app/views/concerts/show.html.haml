@@ -1,5 +1,43 @@
-%span.concert_date
-	= @concert.concert_date.strftime('%A, %B %d') 
-	
-= render :partial => @concert, :as => :c
-
+.content
+  %span.concert_date
+    = @concert.concert_date.strftime('%b') 
+    %br
+    = @concert.concert_date.strftime('%d')
+  .pod.concert-stub
+    %h2.red Lineup:
+    %ul.lineup
+      -@concert.artists.each do |artist|
+        %li
+          %a.block-link{ :href => '/artists/' + artist.id.to_s }
+            =artist.name 
+            .pod.red
+              =artist.bio   
+  %a.block-link{ :href=> '/venues/' + @concert.venue.id.to_s }
+    %h2.red @ #{@concert.venue.name}
+    .pod
+      %span.red
+        =@concert.venue.address
+      %br
+      %br
+      =@concert.venue.description
+    
+.sidebar
+  %h2.white Description
+  .pod.white
+    = @concert.description
+  %h2.white Show Info
+  .pod.constrained.white
+    %span.left Time:
+    %span.right
+      = @concert.concert_date.strftime('%I:%M %p')
+  .pod.constrained.white
+    %span.left Age:
+    %span.right
+      = @concert.age 
+  .pod.constrained.white
+    %span.left Cost:
+    %span.right
+      - if @concert.price.present?
+        $ #{@concert.price}
+      - else 
+        Free

@@ -1,7 +1,9 @@
-%h1.page_title 
-	Edit 
-	= @venue.name
-	
-= render 'form'
+.content
+  %h1.red 
+  Edit
+  = @venue.name
 
-= link_to 'Back', venues_path, :class=>'red_button' 
+  = render 'form'
+
+  = link_to 'Back', venues_path, :class=>'red-button'
+.sidebar
