@@ -1,7 +1,7 @@
 .content
   %h2.red Upcoming Shows
-  -if @upcoming_concerts.present?
-    = render :partial => 'concerts/clist', :locals => { :concerts => @upcoming_concerts } 
+  -if @artist.concerts.present?
+    = render :partial => 'concerts/clist', :locals => { :concerts => @artist.concerts } 
   -else
     This artist does not have any upcoming shows.
 .sidebar
