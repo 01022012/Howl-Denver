@@ -9,15 +9,15 @@
     = @venue.name
   .divider
   %h2.white Description:
-  .pod.white
+  .pod.red.tan
     -if @venue.description.present?
       = @venue.description
     -else 
       This venue does not have a description filled out.
   %h2.white Address:
-  .pod.white
+  .pod.red.tan
     = @venue.address
   %h2.white Websites:
-  .pod.white
+  .pod.red.tan
     websites!
   = link_to 'Edit', edit_venue_path(@venue.id), :class=>'red-button'

@@ -55,6 +55,13 @@
 }
 
 /*
+ * Background Styls
+ */
+.tan{
+  background: #f4e8e8 ;
+}
+
+/*
  * Text Styles
  */
 .red{
@@ -86,16 +93,18 @@
  * Text-pod layouts
  */
 .pod{
-  padding: 0px 20px 20px 20px ;
+  padding: 20px 20px 20px 20px ;
+  margin-bottom: 20px ;
   text-align: justify ;
-  -webkit-hyphens: auto ;
-  -moz-hyphens: auto ;
-  hyphens: auto ;
+  
   overflow: hidden ;
+  
+  border-radius: 5px ;
+  
 }
 
 .constrained{
-  width: 300px ;
+  width: 200px ;
 }
 
 /*
@@ -114,22 +123,20 @@
  */
 
 .red-button{
-  width: 100px ;
-  height: 20px ;
-  padding: 5px ;
+  width: 110px ;
+  height: 30px ;
+  padding: 5px 2px 1px 2px ;
   
-  border-style: solid ;
-  border-width: 1px ;
-  
-  background: #db7070 ;
+  background-image: image_url('button.png') ;
+  background-position: center bottom ;
   
   text-align: center ;
   text-decoration: none ;
   color: #FFFFFF ;
   
-  display: block ;
+  display: inline-block ;
 }
 
 .red-button:hover{
-  background: #cd5353 ;
-}
+  background-image: image_url('button-hover.png') ;
+  background-position: center bottom ;}

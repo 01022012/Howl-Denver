@@ -23,18 +23,18 @@
     
 .sidebar
   %h2.white Description
-  .pod.white
+  .pod.red.tan
     = @concert.description
   %h2.white Show Info
-  .pod.constrained.white
+  .pod.constrained.red.tan
     %span.left Time:
     %span.right
       = @concert.concert_date.strftime('%I:%M %p')
-  .pod.constrained.white
+    %br
     %span.left Age:
     %span.right
       = @concert.age 
-  .pod.constrained.white
+    %br
     %span.left Cost:
     %span.right
       - if @concert.price.present?
