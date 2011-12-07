@@ -93,8 +93,7 @@
  * Text-pod layouts
  */
 .pod{
-  padding: 20px 20px 20px 20px ;
-  margin-bottom: 20px ;
+  padding: 20px ;
   text-align: justify ;
   
   overflow: hidden ;
@@ -126,6 +125,7 @@
   width: 110px ;
   height: 30px ;
   padding: 5px 2px 1px 2px ;
+  margin-top: 20px ;
   
   background-image: image_url('button.png') ;
   background-position: center bottom ;

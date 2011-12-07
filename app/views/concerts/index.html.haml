@@ -6,14 +6,13 @@
     = render :partial => 'clist', :locals => { :concerts => @concerts }
   - else 
     There are now shows logged for this week
-  .pod
-    = link_to 'Previous', concerts_path(:week => @week - 1, :year => @year ), :class => 'left red-button'
-    = link_to 'Next', concerts_path(:week => @week + 1, :year => @year), :class => 'right red-button'
+  = link_to 'Previous', concerts_path(:week => @week - 1, :year => @year ), :class => 'left red-button'
+  = link_to 'Next', concerts_path(:week => @week + 1, :year => @year), :class => 'right red-button'
   
 .sidebar
-  %h1.white Show Calendar
-  .divider
   .pod.red.left.tan
+    %h1.red Show Calendar
+    .divider
     Welcome to the Howl Denver calendar! This lists local shows happening all over Denver. Know of a show but don't see it on the calendar?
   = link_to 'New Concert', new_concert_path, :class => 'red-button' 
 

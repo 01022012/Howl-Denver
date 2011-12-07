@@ -5,17 +5,17 @@
   -else
     This artist does not have any upcoming shows.
 .sidebar
-  %h1.white 
-    = @artist.name
-  .divider
-  %h2.white Bio:
   .pod.red.tan
-    - if @artist.bio.present?
-      = @artist.bio
-    - else 
-      This artist does not have a bio filled out.
-  %h2.white Websites:
-  .pod.red.tan
-    websites!!!
-  .pod  
-    = link_to 'Edit', edit_artist_path(@artist.id), :class=>'red-button'
+    %h1.red 
+      = @artist.name
+    .divider
+    %h3.red Bio:
+    .pod.red.tan.indent
+      - if @artist.bio.present?
+        = @artist.bio
+      - else 
+        This artist does not have a bio filled out.
+    %h3.red Websites:
+    .pod.red.tan.indent
+      websites!!!
+  = link_to 'Edit', edit_artist_path(@artist.id), :class=>'red-button'

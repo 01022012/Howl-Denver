@@ -22,11 +22,12 @@
       =@concert.venue.description
     
 .sidebar
-  %h2.white Description
   .pod.red.tan
+    %h2.red Description
+    .divider
     = @concert.description
-  %h2.white Show Info
-  .pod.constrained.red.tan
+    %h2.red Show Info
+    .divider
     %span.left Time:
     %span.right
       = @concert.concert_date.strftime('%I:%M %p')

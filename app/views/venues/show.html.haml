@@ -5,19 +5,20 @@
   -else
     This venue does not have any upcoming shows.
 .sidebar
-  %h1.white
-    = @venue.name
-  .divider
-  %h2.white Description:
   .pod.red.tan
-    -if @venue.description.present?
-      = @venue.description
-    -else 
-      This venue does not have a description filled out.
-  %h2.white Address:
-  .pod.red.tan
-    = @venue.address
-  %h2.white Websites:
-  .pod.red.tan
-    websites!
+    %h1.red
+      = @venue.name
+    .divider
+    %h3.red Description:
+    .pod.red.tan.indent
+      -if @venue.description.present?
+        = @venue.description
+      -else 
+        This venue does not have a description filled out.
+    %h3.red Address:
+    .pod.red.tan.indent
+      = @venue.address
+    %h3.red Websites:
+    .pod.red.tan.indent
+      websites!
   = link_to 'Edit', edit_venue_path(@venue.id), :class=>'red-button'
