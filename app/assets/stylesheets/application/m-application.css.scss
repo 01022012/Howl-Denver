@@ -43,7 +43,7 @@
  */
 
 #logo{
-  width: 384px ; 
+  width: 560px ; 
   height: 161px ;
   margin: 10px ;
   
@@ -51,7 +51,7 @@
   background-repeat: no-repeat ;
   
   position: absolute ;
-  left: 370px ;
+  left: 300px ;
 }
 
 /*
@@ -125,10 +125,9 @@
   width: 110px ;
   height: 30px ;
   padding: 5px 2px 1px 2px ;
-  margin-top: 20px ;
   
   background-image: image_url('button.png') ;
-  background-position: center bottom ;
+  background-position: 50% 100% ;
   
   text-align: center ;
   text-decoration: none ;
@@ -137,6 +136,93 @@
   display: inline-block ;
 }
 
+button{
+  width: 110px ;
+  height: 30px ;
+  padding: 0px ;
+  margin: 0px ;
+  
+  background: none ;
+  border: none ;
+  height: 30px ;
+}
+
 .red-button:hover{
   background-image: image_url('button-hover.png') ;
   background-position: center bottom ;}
+  
+/*
+ * Autocomplete Styles
+ */
+
+.ui-autocomplete{
+  width: 250px ;
+  height: 300px ;
+  
+  background: #FFFFFF ;
+  
+  border-style: solid ;
+  border-width: 1px ;
+  
+  overflow:scroll ;
+}
+
+.ui-menu{
+  list-style: none ;
+  padding: 0px ;
+  margin: 0px ;
+}
+
+.ui-menu-item{
+  width: 250px ;
+  padding: 5px ;
+  margin: 0px ;
+}
+
+.ui-menu-item a{
+  width: 250px ;
+  display: block ;
+}
+
+.ui-menu-item:hover{
+  background: #f4e8e8 ;
+}
+
+/*
+ * Dialog Styles
+ */
+
+.ui-dialog{
+  background: #FFFFFF ;
+  
+  position: fixed ;
+  
+  border-style: solid ;
+  border-width: 2px ;
+  
+  border-radius: 5px ;
+}
+
+.ui-dialog-titlebar{
+  padding: 20px ;
+  background: #f4e8e8 ;
+}
+
+#ui-dialog-title-new_artist_form{
+  color: #cd5353 ;
+}
+
+.ui-dialog-content{
+  padding: 20px ;
+}
+
+.ui-widget-overlay{
+  background: #817c7c ;
+  position: fixed ;
+  
+  top: 0px ;
+  left: 0px ;
+  opacity: 0.5 ;
+  filter:alpha(opacity=50) ;
+}
+

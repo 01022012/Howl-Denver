@@ -2,49 +2,39 @@
   %fieldset 
     %legend.red Show Info
     .field
-      %legend.red Description
+      %legend.red Description *
       = f.text_area :description
     .field
-      %legend.red Show Date
+      %legend.red Show Date *
       = f.datetime_select :concert_date, :ampm => true, :minute_step => 15
     .field
-      %legend.red Price
-      $
+      %legend.red Price( $ )
       = f.text_field :price
     .field
-      %legend.red Age
-      = f.select :age, options_for_select([	['ALL AGES!!!','ALL AGES!!!'],
-  													['16+','16+'],
-  													['18+','18+'],
-  													['21+','21+'] ])
+      %legend.red Age 
+      = f.text_field :age
   %fieldset
-    %legend.red Lineup 
+    %legend.red Lineup * 
     .field
-      %input{ :type=>'hidden', :id=>'temp_artist'}
-      .suggest_field
-        %input#artist_autocomplete
-        = button_tag "Add Artist", :type=>"button", :id=>"add_artist"
-      %ul.edit_concert_lineup
+      %input#artist_autocomplete
+      %ul.lineup
         - if :artist_ids.present?
           - @concert.artists.each do |artist|
             %li
               = artist.name
               %input{ :type=>'hidden', :name=>'concert[artist_ids][]',:value=>artist.id }
-              = link_to 'Remove', '#', :class=>'remove_artist red_link'	
+              = link_to 'Remove', '#', :class=>'remove_artist red-button'	
   %fieldset	
-    %legend.red Venue
+    %legend.red Venue *
     .field
-      %input{:type=>'hidden', :id=>'temp_venue'}
-      #venue_area
-        -if @concert.venue.present? 
-          %input{ :type=>'hidden', :name=>'concert[venue_id]', :value=>@concert.venue.id }
-          = @concert.venue.name
-          = button_tag "Change Venue", :type=>"button", :id=>"change_venue"
-        -else
-          .suggest_field
-            %input#venue_autocomplete
-            = button_tag "Select Venue", :type=>'button', :id=>'select_venue'
+      %input#venue_autocomplete
+      -if @concert.venue.present? 
+        %input{ :type=>'hidden', :name=>'concert[venue_id]', :value=>@concert.venue.id }
+        = @concert.venue.name
+    #venue_area
+    #new_artist_form{ :title => 'New Artist'}
+      New artist form here.
   .actions
-    = f.submit
+    = f.submit 'Create'
 		
 

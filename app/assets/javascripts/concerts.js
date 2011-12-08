@@ -8,36 +8,31 @@
 $('document').ready( function(){
 	
 	//EVENT BINDINGS
-	$(document).on('click', '#select_venue', select_venue ) ; 
-	$(document).on('click', '#change_venue', change_venue ) ;
-	$(document).on('click', '#add_artist', add_artist ) ;
-	$(document).on('click','#venue_autocomplete', venue_autocomplete) ;
-	$(document).on('click','#next_week', next_week ) ;
-	$('.edit_concert_lineup').on('click', 'a', remove_artist) ;
+	$('.lineup').on('click', 'a', remove_artist) ;
 
-	function next_week(){
-		var responseText = $.ajax()
-	}
-
-	function add_artist(){
-		if($('#artist_autocomplete').val() != "" ){
-			var artistName = $('#artist_autocomplete').val() ;
-			var artistID = $('#temp_artist').val();
-		
-			if( artistID != ""){
-				var hidden_artist_field = '<input type="hidden" name="concert[artist_ids][]" value="' + 
-				artistID + '">' ; 
-			}//end if
-			else{
-				var hidden_artist_field = '<input type="hidden" name="artist_names[]" value="'+ artistName +'"></input>' ;
-			}//end else
-		
-			var lineup_item_html = '<li>' + artistName + hidden_artist_field + '<a href="#" class="remove_artist red_link">Remove</a></li>' ;
-		
-			$(lineup_item_html).appendTo('.edit_concert_lineup') ;
-			$('#artist_autocomplete').val(null) ;
-			$('#temp_artist').val(null) ;
+  
+  $(function(){
+    $('#new_artist_form').dialog({
+        autoOpen: false,
+        width: 400,
+        height: 500,
+        modal: true
+    }) ;
+  }); 
+	
+	function add_artist( name, id){
+    if( id == -1 ){
+      $('#new_artist_form').dialog('open') ;
+ 				/* var hidden_artist_field = '<input type="hidden" name="concert[artist_ids][]" value="' + 
+				artistID + '">' ; */
 		}//end if
+		else{
+				var hidden_artist_html = '<input type="hidden" name="artist_names[]" value="'+ name +'"></input>' ;
+		}//end else
+		
+		var lineup_item_html = '<li>' + name + hidden_artist_html + '<a href="#" class="remove_artist red-button">Remove</a></li>' ;
+		
+		$(lineup_item_html).appendTo('.lineup') ;
 	}//end add_artist 
 
 	function remove_artist(){		
@@ -50,11 +45,16 @@ $('document').ready( function(){
 			source: function( req, add ){
 						$.getJSON("/artists/suggest/", req, function(data){
 							var suggestions = [] ; 
+							
+							var newoption = {} ;
+							newoption["id"] = -1 ;
+              newoption["name"] = "<img src='/assets/plus.png'> New Artist" ;
+              suggestions.push( newoption ) ;
 				
 							$.each( data, function( key, val ){
 								artist = {} ;
-								artist["value"] = val.id ;
-								artist["label"] = val.name ;
+								artist["id"] = val.id ;
+								artist["name"] = val.name ;
 								suggestions.push(artist) ;
 							}); //end each
 				
@@ -62,27 +62,30 @@ $('document').ready( function(){
 						});//end getJSON
 			},//end function
 			select: function( event, ui ) {
-				$( "#artist_autocomplete" ).val( ui.item.label );
-				$( "#temp_artist").val(ui.item.value);
-
+				  add_artist( ui.item.name, ui.item.id);
 				return false;
 			}, //end function
 		})//end autocomplete 
 		.data( "autocomplete" )._renderItem = function( ul, item ) {
 			return $( "<li></li>" )
 				.data( "item.autocomplete", item )
-				.append( "<a>" + item.label + "</a>" )
+				.append( "<a>" + item.name + "</a>" )
 				.appendTo( ul );
 		};//end .data
 	});//end artist_autocomplete 
 
 	//Venue Autocomplete
-	function venue_autocomplete(){
+	$(function(){
 		$( "#venue_autocomplete" ).autocomplete({
 			minLength: 1,
 			source: function( req, add ){
 				$.getJSON("/venues/suggest/", req, function(data){
 					var suggestions = [] ; 
+					
+					var newoption = {} ;
+              newoption["name"] = "<img src='/assets/plus.png'> New Venue" ;
+              newoption["id"] = -1 ;
+              suggestions.push( newoption ) ;
 				
 					$.each( data, function( key, val ){
 						venue = {} ;
@@ -100,45 +103,37 @@ $('document').ready( function(){
 				return false;
 			},
 			select: function( event, ui ) {
-				$('#venue_autocomplete').val( ui.item.name ) ;
-				ui.item.address ;
-				$('#temp_venue').val( ui.item.id ) ;
-				return false;
+			  select_venue( ui.item.name, ui.item.address, ui.item.id)
+			  return false ;
 			}
 		})
 		.data( "autocomplete" )._renderItem = function( ul, item ) {
-			return $( "<li></li>" )
-				.data( "item.autocomplete", item )
-				.append( "<a>" + item.name + "<br>" + item.address + "</a>" )
-				.appendTo( ul );
-		}; 
-	}//end venue_autocomplete
+		  if(item.id == -1 ){
+		    return $( "<li></li>" )
+          .data( "item.autocomplete", item )
+          .append( "<a>" + item.name + "</a>" )
+          .appendTo( ul );
+		  }//end if
+		  else{
+			 return $( "<li></li>" )
+				  .data( "item.autocomplete", item )
+				  .append( "<a>" + item.name + "<br>" + item.address + "</a>" )
+				  .appendTo( ul );
+			}//end else
+		};  
+	});//end venue_autocomplete
    
   
-	function select_venue(){ 
-		if($('#venue_autocomplete').val() != "" ){
-			var venueName = $('#venue_autocomplete').val() ;
-			var venueID = $('#temp_venue').val();
-					
-			var hidden_venue = '<input type="hidden" name ="concert[venue_id]" value="' + venueID + '">' ;
-		
-			var vHTML = hidden_venue + 
-						venueName + 
-						'<button id="change_venue" name="button" type="button">Change Venue</button>' ;
-		
-			$('#venue_area').html( vHTML ) ;
-			$('#temp_venue').val(null) ; 
-		}//end if 
+	function select_venue(name, address, id){ 
+	  if( id == -1 ){
+	    alert( 'New Venue' )
+	  }//end if
+	  else{
+	    var hidden_venue = '<input type="hidden" name ="concert[venue_id]" value="' + id + '">' ;
+	    
+	    var vHTML = hidden_venue + 
+            '<span class="red">' + name + '</span>'  ;
+	  }//end else	
+		$('#venue_area').html( vHTML ) ;
 	}//end select_venue
- 
-	function change_venue(){
-		
-		var vHTML = '<div class="suggest_field">' + 
-						'<input id="venue_autocomplete"></input>' +
-						'<button id="select_venue" name="button" type="button">Select Venue</button>' +
-						'</div>' ;
-						
-		$('#venue_area').html( vHTML ) ; 
-	}//end change_venue
-	
 }) ;
